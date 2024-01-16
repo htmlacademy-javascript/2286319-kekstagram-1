@@ -7,9 +7,9 @@ const isPalindrom = (strinpUp) => {
     .toLowerCase()
     .replaceAll(' ', '');
 
-  let reversedString = ' ';
+  let reversedString = '';
   for (let i = formattedString.length - 1; i >= 0; i--) {
-    reversedString = formattedString.at(i);
+    reversedString += formattedString.at(i);
   }
   return formattedString === reversedString;
 };
