@@ -47,3 +47,4 @@ const getNumber = (string) => {
 
 
 console.log(getNumber('2023 год'));
+console.log(getNumber('ECMAScript 2022'));
