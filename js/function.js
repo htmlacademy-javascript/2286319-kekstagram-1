@@ -44,3 +44,6 @@ const getNumber = (string) => {
   }
   return parseInt(result, 10);
 };
+
+
+console.log(getNumber('2023 год'));
