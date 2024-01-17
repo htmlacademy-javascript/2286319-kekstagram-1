@@ -45,6 +45,17 @@ const getNumber = (string) => {
   return parseInt(result, 10);
 };
 
-
+// eslint-disable-next-line no-console
 console.log(getNumber('2023 год'));
+// eslint-disable-next-line no-console
 console.log(getNumber('ECMAScript 2022'));
+// eslint-disable-next-line no-console
+console.log(myPadStart('1', 2, '0'));
+// eslint-disable-next-line no-console
+console.log(myPadStart('q', 4, 'we'));
+// eslint-disable-next-line no-console
+console.log(isPalindrom('топот'));
+// eslint-disable-next-line no-console
+console.log(isPalindrom('ДовОд'));
+// eslint-disable-next-line no-console
+console.log(checkStringLength('проверяемая строка', 20));
