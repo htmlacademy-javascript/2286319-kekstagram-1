@@ -2,8 +2,8 @@
 /*Проверка на полиндром*/
 
 // eslint-disable-next-line no-unused-vars
-const isPalindrom = (strinpUp) => {
-  const formattedString = strinpUp
+const isPalindrom = (string) => {
+  const formattedString = string
     .toLowerCase()
     .replaceAll(' ', '');
 
@@ -17,7 +17,7 @@ const isPalindrom = (strinpUp) => {
 
 // eslint-disable-next-line no-unused-vars
 const myPadStart = (string, minLength, pad) => {
-  const currentPad = minLength - string.lenght;
+  const currentPad = minLength - string.length;
 
   if (currentPad <= 0) {
     return string;
@@ -29,10 +29,8 @@ const myPadStart = (string, minLength, pad) => {
 
 
 // eslint-disable-next-line no-unused-vars
-const checkStringLength = (string, length) => {
-  const result = string.length <= length;
-  return result;
-};
+const checkStringLength = (string, length) =>
+  string.length <= length;
 
 /*Функция, которая принимает строку, извлекает содержащиеся в ней цифры от 0 до 9 и возвращает их в виде целого положительного числа.*/
 
@@ -46,3 +44,18 @@ const getNumber = (string) => {
   }
   return parseInt(result, 10);
 };
+
+// eslint-disable-next-line no-console
+console.log(getNumber('2023 год'));
+// eslint-disable-next-line no-console
+console.log(getNumber('ECMAScript 2022'));
+// eslint-disable-next-line no-console
+console.log(myPadStart('1', 2, '0'));
+// eslint-disable-next-line no-console
+console.log(myPadStart('q', 4, 'we'));
+// eslint-disable-next-line no-console
+console.log(isPalindrom('топот'));
+// eslint-disable-next-line no-console
+console.log(isPalindrom('ДовОд'));
+// eslint-disable-next-line no-console
+console.log(checkStringLength('проверяемая строка', 20));
