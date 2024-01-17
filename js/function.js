@@ -2,8 +2,8 @@
 /*Проверка на полиндром*/
 
 // eslint-disable-next-line no-unused-vars
-const isPalindrom = (strinpUp) => {
-  const formattedString = strinpUp
+const isPalindrom = (string) => {
+  const formattedString = string
     .toLowerCase()
     .replaceAll(' ', '');
 
@@ -17,7 +17,7 @@ const isPalindrom = (strinpUp) => {
 
 // eslint-disable-next-line no-unused-vars
 const myPadStart = (string, minLength, pad) => {
-  const currentPad = minLength - string.lenght;
+  const currentPad = minLength - string.length;
 
   if (currentPad <= 0) {
     return string;
@@ -29,10 +29,8 @@ const myPadStart = (string, minLength, pad) => {
 
 
 // eslint-disable-next-line no-unused-vars
-const checkStringLength = (string, length) => {
-  const result = string.length <= length;
-  return result;
-};
+const checkStringLength = (string, length) =>
+  string.length <= length;
 
 /*Функция, которая принимает строку, извлекает содержащиеся в ней цифры от 0 до 9 и возвращает их в виде целого положительного числа.*/
 
