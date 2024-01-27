@@ -73,7 +73,7 @@ const createPicture = (index) => ({
 });
 
 const getPictures = () =>
- Array.from({ length: PICTURE_AMONT }, (_, pictureIndex) =>
+ Array.from({ length: PICTURE_AMMONT }, (_, pictureIndex) =>
   createPicture(pictureIndex + 1)
   );
 
