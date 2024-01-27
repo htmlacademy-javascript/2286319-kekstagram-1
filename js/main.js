@@ -60,7 +60,7 @@ const createComment = () => ({
   name: getRandomArrayElement(NAMES),
 });
 
-const createPicture = (index) => ({
+const createImage = (index) => ({
  id: index,
  url: 'photos/${index}.jpg',
  description: getRandomArrayElement(DESCRIPTION),
@@ -72,9 +72,9 @@ const createPicture = (index) => ({
 
 });
 
-const getPictures = () =>
- Array.from({ length: PICTURE_AMMONT }, (_, pictureIndex) =>
-  createPicture(pictureIndex + 1)
+const getImages = () =>
+ Array.from({length: IMAGE_AMOUNT}, (_, imageIndex) =>
+  createImage(imageIndex + 1)
   );
 
-getPictures();
+getImages();
