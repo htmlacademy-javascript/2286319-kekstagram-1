@@ -1,15 +1,10 @@
-/* eslint-disable eol-last */
-/* eslint-disable no-template-curly-in-string */
-/* eslint-disable no-unreachable */
-/* eslint-disable indent */
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-const IMAGE_AMOUNT = 25;
-const AVATAR_AMOUNT = 6;
-const MIN_LIKES_AMOUNT = 15;
-const MAX_LIKES_AMOUNT = 200;
-const COMMENT_AMOUNT = 20;
-const COMMENT_LENGHT = [
+
+const IMAGE_AMOUNTS = 25;
+const AVATAR_AMOUNTS = 6;
+const MIN_LIKES_AMOUNTS = 15;
+const MAX_LIKES_AMOUNTS = 200;
+const COMMENT_AMOUNTS = 20;
+const COMMENT_LINES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -17,12 +12,12 @@ const COMMENT_LENGHT = [
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
-const DESCRIPTION = [
-'Жарим шашлыки #meat, #chill, #eat, #eatmeat',
-'Разбили Лагерь c друзьями! #camping, #friends',
-'Трэш, застукала парня с рядом с лошадью #wtf, #trashcontent, #trash',
-'Прыжок с 200 метров #jump, #highrisk, #emmotions',
-'Не могу выйти из дома, я в депресии #locked, #homealone, #depression'
+const DESCRIPTIONS = [
+  'Жарим шашлыки #meat, #chill, #eat, #eatmeat',
+  'Разбили Лагерь c друзьями! #camping, #friends',
+  'Трэш, застукала парня с рядом с лошадью #wtf, #trashcontent, #trash',
+  'Прыжок с 200 метров #jump, #highrisk, #emmotions',
+  'Не могу выйти из дома, я в депресии #locked, #homealone, #depression'
 ];
 
 const NAMES = ['София', 'Святослав', 'Карен', 'Ариа', 'Алан', 'Валентин'];
@@ -35,46 +30,45 @@ const getRandomInteger = (a, b) => {
 };
 
 const getRandomArrayElement = (array) =>
-  array[getRandomInteger(0, array.lenght - 1)];
+  array[getRandomInteger(0, array.length - 1)];
 
 
 const createIdGenerator = () => {
   let lastGeneratedId = 0;
-
-return () => {
-  lastGeneratedId += 1;
-  return lastGeneratedId;
- };
+  return () => {
+    lastGeneratedId += 1;
+    return lastGeneratedId;
+  };
 };
 const generateCommentId = createIdGenerator();
 
 const createMessage = () =>
- Array.from({lenght: getRandomInteger(1, 2) },() =>
-  getRandomArrayElement(COMMENT_LENGHT)
+  Array.from({length: getRandomInteger(1, 2) },() =>
+    getRandomArrayElement(COMMENT_LINES)
   ).join(' ');
 
 const createComment = () => ({
   id: generateCommentId(),
-  avatar: 'img/avatar-$ {getRandomInteger(1, AVATAR_AMOUNT)}.svg' ,
+  avatar: `img/avatar-${getRandomInteger(1, AVATAR_AMOUNTS)}.svg`,
   message: createMessage(),
   name: getRandomArrayElement(NAMES),
 });
 
 const createImage = (index) => ({
- id: index,
- url: 'photos/${index}.jpg',
- description: getRandomArrayElement(DESCRIPTION),
- likes: getRandomInteger(MIN_LIKES_AMOUNT, MAX_LIKES_AMOUNT),
- comments: Array.from(
-  {length: getRandomInteger(0, COMMENT_AMOUNT) },
-  createComment
- ),
+  id: index,
+  url: `photos/${index}.jpg`,
+  description: getRandomArrayElement(DESCRIPTIONS),
+  likes: getRandomInteger(MIN_LIKES_AMOUNTS, MAX_LIKES_AMOUNTS),
+  comments: Array.from(
+    {length: getRandomInteger(0, COMMENT_AMOUNTS) },
+    createComment
+  ),
 
 });
 
 const getImages = () =>
- Array.from({length: IMAGE_AMOUNT}, (_, imageIndex) =>
-  createImage(imageIndex + 1)
+  Array.from({length: IMAGE_AMOUNTS}, (_, imageIndex) =>
+    createImage(imageIndex + 1)
   );
 
-getImages();
+console.log(getImages());
