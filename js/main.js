@@ -71,4 +71,7 @@ const getImages = () =>
     createImage(imageIndex + 1)
   );
 
-console.log(getImages());
+const images = getImages();
+
+// eslint-disable-next-line no-console
+console.log(images);
