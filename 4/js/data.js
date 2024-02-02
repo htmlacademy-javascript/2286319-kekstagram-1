@@ -1,4 +1,4 @@
-import {getRandomInteger, getRandomArrayElement} from './util.js';
+import {getRandomInteger, getRandomArrayElement, generateCommentId} from './util.js';
 
 const IMAGE_AMOUNTS = 25;
 const AVATAR_AMOUNTS = 6;
@@ -22,16 +22,6 @@ const DESCRIPTIONS = [
 ];
 
 const NAMES = ['София', 'Святослав', 'Карен', 'Ариа', 'Алан', 'Валентин'];
-
-const createIdGenerator = () => {
-  let lastGeneratedId = 0;
-  return () => {
-    lastGeneratedId += 1;
-    return lastGeneratedId;
-  };
-};
-
-const generateCommentId = createIdGenerator();
 
 const createMessage = () =>
   Array.from({length: getRandomInteger(1, 2) },() =>
