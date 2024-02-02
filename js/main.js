@@ -1,4 +1,3 @@
-import './setup.js';
 import {images} from './data.js';
 
 // eslint-disable-next-line no-console
