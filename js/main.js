@@ -1,4 +1,5 @@
 import {getPictures} from './data.js';
-import {renderThumbnails} from './thumbnail.js';
+import {renderGallery} from './gallery.js';
 
-renderThumbnails(getPictures());
+const generatePictures = getPictures();
+renderGallery(generatePictures);
