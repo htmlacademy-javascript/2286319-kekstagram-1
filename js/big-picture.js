@@ -5,6 +5,7 @@ const commentsLoader = document.querySelector('.comments-loader');
 const body = document.querySelector('body');
 const cancelButton = document.querySelector('.big-picture__cancel');
 
+
 const createComment = ({ avatar, name, message }) => {
   const comment = document.createElement('li');
   comment.innerHTML =
@@ -25,7 +26,6 @@ const renderComments = (comments) => {
   comments.forEach((comment) => {
     const commentElement = createComment(comment);
     fragment.append(commentElement);
-
   });
 
   commentList.append(fragment);
