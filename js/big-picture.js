@@ -6,7 +6,7 @@ const body = document.querySelector('body');
 const cancelButton = document.querySelector('.big-picture__cancel');
 
 
-const createComment = ({avatar, name, message, description}) => {
+const createComment = ({avatar, name, message}) => {
   const comment = document.createElement('li');
   comment.innerHTML =
  '<img class="social__picture" src="" alt="" width="35" height="35" p class="social__text">';
@@ -15,7 +15,7 @@ const createComment = ({avatar, name, message, description}) => {
   comment.querySelector('.social__picture').src = avatar;
   comment.querySelector('.social__picture').alt = name;
   comment.querySelector('.social__text').textContent = message;
-  comment.querySelector('.social__caption').textContent = description;
+
   return comment;
 };
 
