@@ -1,6 +1,6 @@
 const MAX_HASHTAG_COUNT = 5;
 const VALID_SYMBOLS = /^#[a-za-яё0-9]{1,19}$/i;
-const TAG_ERROR_TEXT = 'Incorrect Hashtags';
+const TAG_ERROR_TEXT = 'Неверно заполненые хэштеги';
 
 const form = document.querySelector('.img-upload__form');
 const overlay = document.querySelector('.img-upload__overlay');
@@ -13,7 +13,7 @@ const commentField = document.querySelector('.text__description');
 const pristine = new Pristine(form, {
   classTo: 'img-upload__field-wrapper',
   errorTextParent: 'img-upload__field-wrapper',
-  errorTextClass: 'img-upload_field-wrapper__error',
+  errorTextClass: 'img-upload__field-wrapper__error',
 });
 
 const showModal = () => {
@@ -24,7 +24,7 @@ const showModal = () => {
 
 const hideModal = () => {
   form.reset();
-  pristine.reser();
+  pristine.reset();
   overlay.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
