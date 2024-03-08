@@ -5,14 +5,14 @@ const TAG_ERROR_TEXT = 'Incorrect Hashtags';
 const form = document.querySelector('.img-upload__form');
 const overlay = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
-const cancelButton = document.querySelector('.#upload-cancel');
-const fileField = document.querySelector('.#upload-file');
+const cancelButton = document.querySelector('#upload-cancel');
+const fileField = document.querySelector('#upload-file');
 const hashtagField = document.querySelector('.text__hashtags');
 const commentField = document.querySelector('.text__description');
 
 const pristine = new Pristine(form, {
   classTo: 'img-upload__field-wrapper',
-  errorTextParent : 'img-upload__field-wrapper',
+  errorTextParent: 'img-upload__field-wrapper',
   errorTextClass: 'img-upload_field-wrapper__error',
 });
 
