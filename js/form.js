@@ -11,7 +11,7 @@ const hashtagField = document.querySelector('.text__hashtags');
 const commentField = document.querySelector('.text__description');
 
 const pristine = new Pristine(form, {
-  ClassTo: 'img-upload__field-wrapper',
+  classTo: 'img-upload__field-wrapper',
   errorTextParent : 'img-upload__field-wrapper',
   errorTextClass: 'img-upload_field-wrapper__error',
 });
@@ -19,7 +19,7 @@ const pristine = new Pristine(form, {
 const showModal = () => {
   overlay.classList.remove('hidden');
   body.classList.add('modal-open');
-  Document.addEventListener('keydown', onDocumentKeydown);
+  document.addEventListener('keydown', onDocumentKeydown);
 };
 
 const hideModal = () => {
@@ -32,7 +32,7 @@ const hideModal = () => {
 
 const isTextFieldFocused = () =>
   document.activeElement === hashtagField ||
-document.activeElement === commentField;
+  document.activeElement === commentField;
 
 function onDocumentKeydown(evt) {
   if (evt.key === 'Escape' && !isTextFieldFocused()) {
