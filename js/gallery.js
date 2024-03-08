@@ -10,6 +10,8 @@ const renderGallery = (pictures) => {
       return;
     }
 
+    evt.preventDefault();
+
     const picture = pictures.find(
       (item) => item.id === +thumbnail.dataset.thumbnailId
     );
@@ -17,7 +19,6 @@ const renderGallery = (pictures) => {
   });
 
   renderThumbnails(pictures, container);
-
 };
 
 export {renderGallery};
