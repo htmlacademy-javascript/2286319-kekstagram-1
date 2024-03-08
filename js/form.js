@@ -1,6 +1,6 @@
 const MAX_HASHTAG_COUNT = 5;
 const VALID_SYMBOLS = /^#[a-za-яё0-9]{1,19}$/i;
-const TAG_ERROR_TEXT = 'Неверно заполненые хэштеги';
+const TAG_ERROR_TEXT = 'Incorrect hashtags';
 
 const form = document.querySelector('.img-upload__form');
 const overlay = document.querySelector('.img-upload__overlay');
