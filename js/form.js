@@ -1,8 +1,11 @@
+import {resetScale} from './scale.js';
+import {resetEffect} from './effect.js';
+
 const MAX_HASHTAG_COUNT = 5;
 const VALID_SYMBOLS = /^#[a-za-яё0-9]{1,19}$/i;
 const TAG_ERROR_TEXT = 'Неправильно заполненые хэштеги';
 
-const form = document.querySelector('.img-upload__form');
+const form = document.querySelector('.img-upload__form img');
 const overlay = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 const cancelButton = document.querySelector('#upload-cancel');
@@ -24,6 +27,8 @@ const showModal = () => {
 
 const hideModal = () => {
   form.reset();
+  resetScale();
+  resetEffect();
   pristine.reset();
   overlay.classList.add('hidden');
   body.classList.remove('modal-open');
