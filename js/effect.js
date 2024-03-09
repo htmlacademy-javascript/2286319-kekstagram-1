@@ -51,7 +51,7 @@ const EFFECTS = [
 const DEFAULT_EFFECT = EFFECTS[0];
 let chosenEffect = DEFAULT_EFFECT;
 
-const imageElement = document.querySelector('.img-upload_preview');
+const imageElement = document.querySelector('.img-upload_preview img');
 const effectsElement = document.querySelector('.effects');
 const sliderElement = document.querySelector('.effect-level__slider');
 const sliderContainerElement = document.querySelector('.img__upload__effect-level');
