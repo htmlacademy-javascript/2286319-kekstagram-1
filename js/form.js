@@ -1,5 +1,5 @@
 import {resetScale} from './scale.js';
-import {resetEffect} from './effect.js';
+import {resetEffects} from './effect.js';
 
 const MAX_HASHTAG_COUNT = 5;
 const VALID_SYMBOLS = /^#[a-za-яё0-9]{1,19}$/i;
@@ -28,7 +28,7 @@ const showModal = () => {
 const hideModal = () => {
   form.reset();
   resetScale();
-  resetEffect();
+  resetEffects();
   pristine.reset();
   overlay.classList.add('hidden');
   body.classList.remove('modal-open');
