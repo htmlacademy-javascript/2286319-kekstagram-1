@@ -3,7 +3,7 @@ import {resetEffect} from './effect.js';
 
 const MAX_HASHTAG_COUNT = 5;
 const VALID_SYMBOLS = /^#[a-za-яё0-9]{1,19}$/i;
-const TAG_ERROR_TEXT = 'Неправильно заполненые хэштеги';
+const TAG_ERROR_TEXT = 'Неправильно заполненые хэштеги!';
 
 const form = document.querySelector('.img-upload__form img');
 const overlay = document.querySelector('.img-upload__overlay');
