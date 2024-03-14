@@ -102,7 +102,6 @@ const setOnFormSubmit = (cb) => {
       blockSubmitButton();
       await cb(new FormData(form));
       unblockSubmitButton();
-      console.log(isValid);
     }
   });
 };
