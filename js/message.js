@@ -39,5 +39,8 @@ errorMessage.addEventListener('keydown', (evt) => {
   }
 });
 
+showSuccessMessage();
+showErrorMessage();
+
 
 export {showSuccessMessage, showErrorMessage};

@@ -2,7 +2,7 @@ import {renderGallery} from './gallery.js';
 import {setOnFormSubmit, hideModal} from './form.js';
 import {getData, sendData} from './api.js';
 import {showAlert} from './util.js';
-import {showErrorMessage, showSuccessMessage} from './message.js';
+import {showSuccessMessage, showErrorMessage} from './message.js';
 
 setOnFormSubmit(async (data) => {
   try {
