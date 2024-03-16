@@ -5,42 +5,47 @@ const errorMessage = document.querySelector('.error');
 const onDocumentKeydown = (evt) => {
   if (evt.key === 'Escape') {
     evt.preventDefault();
-    showErrorMessage();
+    closeErrorMessage();
   }
 };
 
-function showSuccessMessage () {
+function openSuccessMessage () {
   bodyElement.classList.remove('hidden');
   document.addEventListener('keydown', onDocumentKeydown);
 }
 
-function showErrorMessage () {
+function closeErrorMessage () {
   bodyElement.classList.add('hidden');
   document.removeEventListener('keydown', onDocumentKeydown);
 }
 
 successMessage.addEventListener('click', () => {
-  showSuccessMessage();
+  openSuccessMessage();
 });
 
 successMessage.addEventListener('keydown', (evt) => {
   if (evt.key === 'Enter') {
-    showErrorMessage();
+    closeErrorMessage();
   }
 });
 
 errorMessage.addEventListener('click', () => {
-  showErrorMessage();
+  closeErrorMessage();
 });
 
 errorMessage.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') {
-    showErrorMessage();
+    closeErrorMessage();
   }
 });
 
-showSuccessMessage();
-showErrorMessage();
+const showSuccessMessage = () => {
+  openSuccessMessage();
+};
+
+const showErrorMessage = () => {
+  closeErrorMessage();
+};
 
 
 export {showSuccessMessage, showErrorMessage};
