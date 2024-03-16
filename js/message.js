@@ -41,11 +41,13 @@ errorMessage.addEventListener('keydown', (evt) => {
 
 const showSuccessMessage = () => {
   openSuccessMessage();
+  console.log(showSuccessMessage);
 };
 
 const showErrorMessage = () => {
   closeErrorMessage();
 };
+
 
 
 export {showSuccessMessage, showErrorMessage};
