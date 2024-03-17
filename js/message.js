@@ -11,13 +11,13 @@ const onDocumentKeydown = (evt) => {
 
 function showSuccessMessage () {
   bodyElement.classList.remove('hidden');
-  bodyElement.classList.add('modal-open');
+  bodyElement.classList.remove('modal-open');
   document.addEventListener('keydown', onDocumentKeydown);
 }
 
 function showErrorMessage () {
   bodyElement.classList.add('hidden');
-  bodyElement.classList.remove('modal-open');
+  bodyElement.classList.add('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
 }
 
