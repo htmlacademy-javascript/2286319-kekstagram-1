@@ -31,7 +31,7 @@ const onSuccessMessageClick = (evt) => {
 };
 
 const onErrorMessageClick = (evt) => {
-  if (!document.querySelector('.error__inner').containt(evt.target)) {
+  if (!document.querySelector('.error__inner').contains(evt.target)) {
     closeErrorMessage();
   }
 
