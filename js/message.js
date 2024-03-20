@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const bodyElement = document.querySelector('body');
 const successMessage = document.querySelector('#success').content.querySelector('.success');
 const errorMessage = document.querySelector('#error').contet.querySelector('.error');
@@ -5,40 +6,48 @@ const errorMessage = document.querySelector('#error').contet.querySelector('.err
 const onDocumentKeydown = (evt) => {
   if (evt.key === 'Escape') {
     evt.preventDefault();
-    showErrorMessage();
+    closeErrorMessage();
   }
 };
 
-function showSuccessMessage () {
-  bodyElement.classList.remove('hidden');
-  bodyElement.classList.remove('modal-open');
+function openSuccessMessage () {
+  // eslint-disable-next-line no-undef
+  const successTemplate = thumbnailTemplate.cloneNode(true);
+
   document.addEventListener('keydown', onDocumentKeydown);
 }
 
-function showErrorMessage () {
-  bodyElement.classList.add('hidden');
-  bodyElement.classList.add('modal-open');
+function closeErrorMessage () {
+
   document.removeEventListener('keydown', onDocumentKeydown);
 }
 
 successMessage.addEventListener('click', () => {
-  showSuccessMessage();
+  openSuccessMessage();
 });
 
 successMessage.addEventListener('keydown', (evt) => {
   if (evt.key === 'Enter') {
-    showErrorMessage();
+    closeErrorMessage();
   }
 });
 
 errorMessage.addEventListener('click', () => {
-  showErrorMessage();
+  closeErrorMessage();
 });
 
 errorMessage.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') {
-    showErrorMessage();
+    closeErrorMessage();
   }
 });
+
+const showSuccessMessage = () => {
+  openSuccessMessage();
+};
+
+const showErrorMessage = () => {
+  closeErrorMessage();
+};
 
 export {showSuccessMessage, showErrorMessage};
