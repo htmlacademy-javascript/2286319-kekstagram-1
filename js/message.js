@@ -1,3 +1,5 @@
+import {hideModal, isTextFieldFocused} from './form.js';
+
 const successTemplate = document.querySelector('#success').content.querySelector('.success');
 const errorTemplate = document.querySelector('#error').content.querySelector('.error');
 
@@ -9,9 +11,10 @@ const onDocumentSuccessKeydown = (evt) => {
 };
 
 const onDocumentErrorKeydown = (evt) => {
-  if (evt.key === 'Escape') {
+  const errorElement = document.querySelector('.error');
+  if (evt.key === 'Escape' && !isTextFieldFocused() && !errorElement) {
     evt.preventDefault();
-    closeErrorMessage();
+    hideModal();
   }
 };
 
