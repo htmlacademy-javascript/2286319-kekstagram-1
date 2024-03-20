@@ -1,20 +1,16 @@
 const successTemplate = document.querySelector('#success').content.querySelector('.success');
 const errorTemplate = document.querySelector('#error').content.querySelector('.error');
 
-const onDocumentSuccessKeydown = (evt) => {
+const onDocumentKeydown = (evt) => {
   if (evt.key === 'Escape') {
-    evt.preventDefault();
-    closeSuccessMessage();
+    if (document.querySelector('.success')) {
+      closeSuccessMessage();
+    } else {
+      closeErrorMessage();
+    }
   }
+  evt.preventDefault();
 };
-
-const onDocumentErrorKeydown = (evt) => {
-  if (evt.key === 'Escape') {
-    evt.preventDefault();
-    closeErrorMessage();
-  }
-};
-
 
 const onButtonSuccessClick = () => {
   closeSuccessMessage();
@@ -34,7 +30,6 @@ const onErrorMessageClick = (evt) => {
   if (!document.querySelector('.error__inner').contains(evt.target)) {
     closeErrorMessage();
   }
-
 };
 
 const openSuccessMessage = () => {
@@ -43,7 +38,7 @@ const openSuccessMessage = () => {
   const succesButtonElement = successElement.querySelector('.success__button');
   succesButtonElement.addEventListener('click', onButtonSuccessClick);
   successElement.addEventListener('click', onSuccessMessageClick);
-  document.addEventListener('keydown', onDocumentSuccessKeydown);
+  document.addEventListener('keydown', onDocumentKeydown);
 };
 
 const openErrorMessage = () => {
@@ -52,19 +47,19 @@ const openErrorMessage = () => {
   const errorButtonElement = errorElement.querySelector('.error__button');
   errorButtonElement.addEventListener('click', onButtonErrorClick);
   errorElement.addEventListener('click', onErrorMessageClick);
-  document.addEventListener('keydown', onDocumentErrorKeydown);
+  document.addEventListener('keydown', onDocumentKeydown);
 };
 
 function closeErrorMessage () {
   const errorElement = document.querySelector('.error');
   errorElement.remove();
-  document.removeEventListener('keydown', onDocumentErrorKeydown);
+  document.removeEventListener('keydown', onDocumentKeydown);
 }
 
 function closeSuccessMessage () {
   const successElement = document.querySelector('.success');
   successElement.remove();
-  document.removeEventListener('keydown', onDocumentSuccessKeydown);
+  document.removeEventListener('keydown', onDocumentKeydown);
 }
 
 export {openSuccessMessage, openErrorMessage};
