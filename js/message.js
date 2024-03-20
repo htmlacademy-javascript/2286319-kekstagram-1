@@ -4,19 +4,28 @@ const errorTemplate = document.querySelector('#error').content.querySelector('.e
 const onDocumentKeydown = (evt) => {
   if (evt.key === 'Escape') {
     evt.preventDefault();
-    closeErrorMessage();
+    closeSuccessMessage();
   }
+};
+
+const onButtonClick = () => {
+  closeSuccessMessage();
 };
 
 const openSuccessMessage = () => {
   const successElement = successTemplate.cloneNode(true);
   document.body.append(successElement);
+  const succesButtonElement = successElement.querySelector('.success__button');
+  succesButtonElement.addEventListener('click', onButtonClick);
   document.addEventListener('keydown', onDocumentKeydown);
 };
 
-function closeErrorMessage () {
+function closeSuccessMessage () {
+  const successElement = document.querySelector('.success');
+  successElement.remove();
   document.removeEventListener('keydown', onDocumentKeydown);
 }
+
 /*
 successMessage.addEventListener('click', () => {
   openSuccessMessage();
