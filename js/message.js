@@ -1,7 +1,5 @@
-/* eslint-disable no-unused-vars */
-const bodyElement = document.querySelector('body');
-const successMessage = document.querySelector('#success').content.querySelector('.success');
-const errorMessage = document.querySelector('#error').content.querySelector('.error');
+const successTemplate = document.querySelector('#success').content.querySelector('.success');
+const errorTemplate = document.querySelector('#error').content.querySelector('.error');
 
 const onDocumentKeydown = (evt) => {
   if (evt.key === 'Escape') {
@@ -10,18 +8,16 @@ const onDocumentKeydown = (evt) => {
   }
 };
 
-function openSuccessMessage () {
-  // eslint-disable-next-line no-undef
-  const successTemplate = thumbnailTemplate.cloneNode(true);
-
+const openSuccessMessage = () => {
+  const successElement = successTemplate.cloneNode(true);
+  document.body.append(successElement);
   document.addEventListener('keydown', onDocumentKeydown);
-}
+};
 
 function closeErrorMessage () {
-
   document.removeEventListener('keydown', onDocumentKeydown);
 }
-
+/*
 successMessage.addEventListener('click', () => {
   openSuccessMessage();
 });
@@ -49,5 +45,6 @@ const showSuccessMessage = () => {
 const showErrorMessage = () => {
   closeErrorMessage();
 };
+*/
 
-export {showSuccessMessage, showErrorMessage};
+export {openSuccessMessage, };
