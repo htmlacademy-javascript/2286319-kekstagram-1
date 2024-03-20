@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 const bodyElement = document.querySelector('body');
 const successMessage = document.querySelector('#success').content.querySelector('.success');
-const errorMessage = document.querySelector('#error').contet.querySelector('.error');
+const errorMessage = document.querySelector('#error').content.querySelector('.error');
 
 const onDocumentKeydown = (evt) => {
   if (evt.key === 'Escape') {
