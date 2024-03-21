@@ -35,15 +35,15 @@ const setOnFilterClick = (callback) => {
       return;
     }
 
-    filterElement.querySelector('.img-filters__buttin—active').classList.remove('img-filters__button—active');
-    clickedButton.classList.add('img-filters__button—active');
+    filterElement.querySelector('.img-filters__button—-active').classList.remove('img-filters__button--active');
+    clickedButton.classList.add('img-filters__button—-active');
     currentFilter = clickedButton.id;
     callback(getFilteredPictures());
   });
 };
 
 const init = (loadedPictures, callback) => {
-  filterElement.classList.remove('img-filters—inactive');
+  filterElement.classList.remove('img-filters--inactive');
   pictures = [...loadedPictures];
   setOnFilterClick(callback);
 };
