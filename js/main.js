@@ -19,7 +19,6 @@ try {
   const data = await getData();
   const debouncedRenderGallery = debounce(renderGallery);
   init(data, debouncedRenderGallery);
-  renderGallery(getFilteredPictures);
   getFilteredPictures();
 } catch (err) {
   showAlert(err.message);
