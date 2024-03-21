@@ -13,14 +13,17 @@ const createThumbnail = ({ comments, description, likes, url, id }) => {
   return thumbnail;
 };
 
-const renderThumbnails = (thumbnails) => {
+const renderThumbnails = (pictures, container) => {
+  container.querySelectorAll('.picture').forEach((element) => element.remove());
   const fragment = document.createDocumentFragment();
-  thumbnails.forEach((thumbnail) => {
-    const pictureElement = createThumbnail(thumbnail);
-    fragment.append(pictureElement);
+  pictures.forEach((picture) => {
+    const thumbnail = createThumbnail(picture);
+    fragment.append(thumbnail);
   });
 
   container.append(fragment);
 };
+
+renderThumbnails();
 
 export {renderThumbnails};
