@@ -70,7 +70,7 @@ const onFileInputChange = () => {
   if (file && isValidType(file)) {
     photoPreview.src = URL.createObjectURL(file);
     effectsPreviews.forEach((preview) => {
-      preview.style.backgroundImage = `url(${URL.createObjectURL(file)})`;
+      preview.style.backgroundImage = `url('${photoPreview.src}')`;
     });
   }
 
