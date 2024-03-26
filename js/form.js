@@ -57,7 +57,7 @@ function onDocumentKeydown(evt) {
 
 const isValidType = (file) => {
   const fileName = file.name.toLowerCase();
-  return FILE_TYPES.some((it) => fileName.endWith(it));
+  return FILE_TYPES.some((it) => fileName.endsWith(it));
 };
 
 const onCancelButtonClick = () => {
