@@ -19,7 +19,7 @@ const hashtagField = document.querySelector('.text__hashtags');
 const commentField = document.querySelector('.text__description');
 const submitButton = document.querySelector('.img-upload__submit');
 const photoPreview = document.querySelector('.img-upload__preview img');
-const effectsPreviews = document.querySelector('.effects__preview');
+const effectsPreviews = document.querySelectorAll('.effects__preview');
 
 const pristine = new Pristine(form, {
   classTo: 'img-upload__field-wrapper',
@@ -126,4 +126,4 @@ const setOnFormSubmit = (cb) => {
 fileField.addEventListener('change', onFileInputChange);
 cancelButton.addEventListener('click', onCancelButtonClick);
 
-export {setOnFormSubmit, hideModal, isTextFieldFocused};
+export {setOnFormSubmit, hideModal};
