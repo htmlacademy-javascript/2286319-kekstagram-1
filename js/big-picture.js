@@ -1,9 +1,14 @@
+const COMMENTS_PER_PORTION = 5;
+
 const bigPicture = document.querySelector('.big-picture');
 const commentCount = document.querySelector('.social__comment-count');
 const commentList = document.querySelector('.social__comments');
 const commentsLoader = document.querySelector('.comments-loader');
 const body = document.querySelector('body');
 const cancelButton = document.querySelector('.big-picture__cancel');
+
+let commentsShown = 0;
+const comments = [];
 
 
 const createComment = ({avatar, name, message}) => {
@@ -19,30 +24,33 @@ const createComment = ({avatar, name, message}) => {
   return comment;
 };
 
-const renderComments = (comments) => {
-  commentList.innerHTML = '';
+const renderComments = () => {
+  commentsShown += COMMENTS_PER_PORTION;
+
+  if (commentsShown >= comments.length) {
+    commentsLoader.classList.add('hidden');
+    commentsShown = comments.length;
+  } else {
+    commentsLoader.classList.remove('hidden');
+  }
 
   const fragment = document.createDocumentFragment();
-  comments.forEach((comment) => {
-    const commentElement = createComment(comment);
+  for (let i = 0; i < commentsShown; i++) {
+    const commentElement = createComment(comments[i]);
     fragment.append(commentElement);
-  });
+  }
 
+  commentList.innerHTML = '';
   commentList.append(fragment);
+  commentCount.innerHTML = `${commentsShown} из <span class="comments-count">${comments.length}</span> комментариев`;
 };
 
 const hideBigPicture = () => {
   bigPicture.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
+  commentsShown = 0;
 };
-
-function onDocumentKeydown(evt) {
-  if (evt.key === 'Escape') {
-    evt.preventDefault();
-    hideBigPicture();
-  }
-}
 
 const onCancelButtonClick = () => {
   hideBigPicture();
@@ -66,6 +74,14 @@ const showBigPicture = (data) => {
   renderComments(data.comments);
 };
 
+function onDocumentKeydown(evt) {
+  if (evt.key === 'Escape') {
+    evt.preventDefault();
+    hideBigPicture();
+  }
+}
+
 cancelButton.addEventListener('click', onCancelButtonClick);
 
 export {showBigPicture};
+
