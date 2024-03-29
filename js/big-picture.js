@@ -56,6 +56,8 @@ const onCancelButtonClick = () => {
   hideBigPicture();
 };
 
+const onCommentsLoaderClick = () => renderComments();
+
 const renderPictureDetails = ({url, likes, description }) => {
   bigPicture.querySelector('.big-picture__img img').src = url;
   bigPicture.querySelector('.big-picture__img img').alt = description;
@@ -67,11 +69,13 @@ const showBigPicture = (data) => {
   bigPicture.classList.remove('hidden');
   body.classList.add('modal-open');
   commentsLoader.classList.add('hidden');
-  commentCount.classList.add('hidden');
   document.addEventListener('keydown', onDocumentKeydown);
 
   renderPictureDetails(data);
-  renderComments(data.comments);
+  comments = data.comments;
+  if (comments.length > 0) {
+    renderComments();
+  }
 };
 
 function onDocumentKeydown(evt) {
@@ -82,6 +86,7 @@ function onDocumentKeydown(evt) {
 }
 
 cancelButton.addEventListener('click', onCancelButtonClick);
+commentsLoader.addEventListener('click', onCommentsLoaderClick);
 
 export {showBigPicture};
 
