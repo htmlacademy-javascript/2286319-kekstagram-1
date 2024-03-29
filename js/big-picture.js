@@ -8,7 +8,7 @@ const body = document.querySelector('body');
 const cancelButton = document.querySelector('.big-picture__cancel');
 
 let commentsShown = 0;
-const comments = [];
+let comments = [];
 
 
 const createComment = ({avatar, name, message}) => {
