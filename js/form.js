@@ -7,7 +7,7 @@ const TAG_ERROR_TEXT = 'Неправильно заполненые хэштег
 const FILE_TYPES = ['jpg', 'jpeg', 'png'];
 const SubmitButtonText = {
   IDLE: 'Опубликовать',
-  SUBMITTING: 'Отправляю...',
+  SENDING: 'Отправляю...',
 };
 
 const form = document.querySelector('.img-upload__form');
