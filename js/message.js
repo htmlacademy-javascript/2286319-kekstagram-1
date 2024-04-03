@@ -21,13 +21,13 @@ const onButtonErrorClick = () => {
 };
 
 const onSuccessMessageClick = (evt) => {
-  if (!document.querySelector('.success__inner').contains(evt.target)) {
+  if (!evt.target.closest('.success__inner')) {
     closeSuccessMessage();
   }
 };
 
 const onErrorMessageClick = (evt) => {
-  if (!document.querySelector('.error__inner').contains(evt.target)) {
+  if (!evt.target.closest('.error__inner')) {
     closeErrorMessage();
   }
 };
