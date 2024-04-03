@@ -47,14 +47,6 @@ const isTextFieldFocused = () =>
   document.activeElement === hashtagField ||
   document.activeElement === commentField;
 
-function onDocumentKeydown(evt) {
-  const errorElement = document.querySelector('.error');
-  if (evt.key === 'Escape' && !isTextFieldFocused() && !errorElement) {
-    evt.preventDefault();
-    hideModal();
-  }
-}
-
 const isValidType = (file) => {
   const fileName = file.name.toLowerCase();
   return FILE_TYPES.some((it) => fileName.endsWith(it));
@@ -122,6 +114,15 @@ const setOnFormSubmit = (cb) => {
     }
   });
 };
+
+function onDocumentKeydown(evt) {
+  const errorElement = document.querySelector('.error');
+  if (evt.key === 'Escape' && !isTextFieldFocused() && !errorElement) {
+    evt.preventDefault();
+    hideModal();
+  }
+}
+
 
 fileField.addEventListener('change', onFileInputChange);
 cancelButton.addEventListener('click', onCancelButtonClick);
