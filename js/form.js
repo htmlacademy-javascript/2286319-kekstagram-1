@@ -7,7 +7,7 @@ const TAG_ERROR_TEXT = 'Неправильно заполненые хэштег
 const FILE_TYPES = ['jpg', 'jpeg', 'png'];
 const SubmitButtonText = {
   IDLE: 'Опубликовать',
-  SUBMITTING: 'Отправляю...',
+  SENDING: 'Отправляю...',
 };
 
 const form = document.querySelector('.img-upload__form');
@@ -126,4 +126,4 @@ const setOnFormSubmit = (cb) => {
 fileField.addEventListener('change', onFileInputChange);
 cancelButton.addEventListener('click', onCancelButtonClick);
 
-export {setOnFormSubmit, hideModal, isTextFieldFocused};
+export {setOnFormSubmit, hideModal};
