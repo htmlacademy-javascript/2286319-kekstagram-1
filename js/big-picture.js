@@ -35,8 +35,8 @@ const renderComments = () => {
 
   const fragment = document.createDocumentFragment();
   for (let i = 0; i < commentsShown; i++) {
-    const commentElement = createComment(comments[i]);
-    fragment.append(commentElement);
+    const commentItem = createComment(comments[i]);
+    fragment.append(commentItem);
   }
 
   commentList.innerHTML = '';

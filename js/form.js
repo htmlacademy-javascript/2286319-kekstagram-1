@@ -116,8 +116,8 @@ const setOnFormSubmit = (cb) => {
 };
 
 function onDocumentKeydown(evt) {
-  const errorElement = document.querySelector('.error');
-  if (evt.key === 'Escape' && !isTextFieldFocused() && !errorElement) {
+  const errorItem = document.querySelector('.error');
+  if (evt.key === 'Escape' && !isTextFieldFocused() && !errorItem) {
     evt.preventDefault();
     hideModal();
   }
